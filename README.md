@@ -1,4 +1,4 @@
-##链表
+## 链表
 leetcode2 两数相加
 
 leetcode82 删除排序链表中的重复元素 II  
@@ -20,7 +20,7 @@ leetcode3 无重复字符的最长子串
 
 leetcode209 长度最小的子数组
 
-##栈
+## 栈
 leetcode 225 用队列实现栈
 
 leetcode 232 用栈实现队列
