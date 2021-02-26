@@ -19,32 +19,27 @@ public class leetcode225 {
 
     /** Push element x onto stack. */
     public void push(int x) {
+        while (!queue1.isEmpty()){
+            queue2.add(queue1.poll());
+        }
         queue1.add(x);
         while (!queue2.isEmpty()){
-            queue1.add(queue2.remove());
+            queue1.add(queue2.poll());
         }
-        Queue<Integer> t=new ArrayDeque<>();
-        t=queue1;
-        queue1=queue2;
-        queue2=t;
     }
 
     /** Removes the element on top of the stack and returns that element. */
     public int pop() {
-        return queue2.remove();
+        return queue1.remove();
     }
 
     /** Get the top element. */
     public int top() {
-        return queue2.peek();
+        return queue1.peek();
     }
 
     /** Returns whether the stack is empty. */
     public boolean empty() {
-        if(queue1.isEmpty()&&queue2.isEmpty()){
-            return true;
-        }else{
-            return false;
-        }
+        return queue1.isEmpty()&&queue2.isEmpty();
     }
 }
