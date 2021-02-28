@@ -1,6 +1,7 @@
 package myproblems.sort;
 
 public class QuickSort {
+    static int y=1;
     public static void quickSort(int[] arr,int low,int high){
         int i,j,temp,t;
         if(low>high){
@@ -28,6 +29,13 @@ public class QuickSort {
             }
 
         }
+//        System.out.println("第"+y+"轮");
+//        for (int x = 0; x < arr.length; x++) {
+//            System.out.print(arr[x]+" ");
+//        }
+//        y++;
+//
+//        System.out.println();
         //最后将基准为与i和j相等位置的数字交换
         arr[low] = arr[i];
         arr[i] = temp;
@@ -39,7 +47,7 @@ public class QuickSort {
 
 
     public static void main(String[] args){
-        int[] arr = {10,7,2,4,7,62,3,4,2,1,8,9,19};
+        int[] arr = {2,4,5,8,9,1};
         quickSort(arr, 0, arr.length-1);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);

@@ -11,19 +11,16 @@ public class leetcode24 {
 //        return next;
 //    }
     public ListNode swapPairs(ListNode head) {
-        if (head==null){
-        return head;
-        }
-       ListNode pre=new ListNode(0);
+        ListNode pre=new ListNode(0);
         pre.next=head;
-        ListNode tmp=pre;
-        while (tmp.next!=null&&tmp.next.next!=null){
-            ListNode start=tmp.next;
-            ListNode end=tmp.next.next;
-            tmp.next=end;
+        ListNode t=pre.next;
+        while (t.next!=null&&t.next.next!=null){
+            ListNode start=t.next;
+            ListNode end=t.next.next;
+            t.next=end;
             start.next=end.next;
             end.next=start;
-            tmp=start;
+            t=start;
         }
         return pre.next;
 }
