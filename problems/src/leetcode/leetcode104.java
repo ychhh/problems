@@ -1,8 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 public class leetcode104 {
 //    public int maxDepth(TreeNode root) {
@@ -12,24 +10,26 @@ public class leetcode104 {
 //          return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
 //    }
     public int maxDepth(TreeNode root) {
-        if(root==null){
+        if (root==null){
             return 0;
         }
-        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-        ArrayList list = new ArrayList();
         int depth=0;
-        queue.offer(root);
-        while (!queue.isEmpty()){
-            int size=queue.size();
-            for (int i=0;i<size;i++){
-                root=queue.getFirst();
-                if (root.left!=null)
-                    queue.offer(root.left);
-                if (root.right!=null)
-                    queue.offer(root.right);
-                queue.remove();
+        Deque<TreeNode> deque=new ArrayDeque<>();
+        deque.offer(root);
+        while (!deque.isEmpty()){
+            int size=deque.size();
+            for (int i=0;i<size;i++) {
+                if (deque.peek().left != null) {
+                    deque.add(deque.peek().left);
+                }
+                if (deque.peek().right != null) {
+                    deque.add(deque.peek().right);
+                }
+                deque.remove();
             }
-            depth++; }
+            depth++;
+
+        }
         return depth;
 }
 
